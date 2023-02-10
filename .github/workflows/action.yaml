@@ -1,13 +1,19 @@
 # This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
 
-name: Node.js CI
+# uni web 项目一体式构建方案
+name: uni-web project build
 
 on:
   push:
     branches: [ "main" ]
+    tags:
+      - "v*.*.*"
   pull_request:
-    branches: [ "main" ]
+    branches: [ ]
+  # 每月 的 一号 凌晨 调度运行
+  #  schedule:
+  #    - cron: '0 0 */1 * *'
 
 jobs:
   build:
@@ -16,16 +22,25 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [18.x]
+        node-version: [ 18.x ]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: npm ci
-    - run: npm run build --if-present
-    - run: npm test
+      # 拉取main分支最新的项目代码
+      - name: git check out main branches
+        uses: actions/checkout@v3
+        with:
+          ref: main
+      # ------------------------------------------- node 构建管理模块 ----------------------------------------------------
+      - name: npm build
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run build --if-present
+      - run: npm test
+      # ------------------------------------------- node 构建管理模块 ----------------------------------------------------
+
+      - name: run shell
+        run: ls -al
