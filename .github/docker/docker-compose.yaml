@@ -1,0 +1,30 @@
+version: "3.9"
+services:
+  server:
+    # 默认不构建镜像
+    #    build:
+    #      dockerfile: DockerFile
+    image: registry.cn-hangzhou.aliyuncs.com/acitrus/uni:main
+    pull_policy: always
+    env_file:
+      - .env
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+    #      rollback_config:
+    #        parallelism:
+
+    networks:
+      - uni-network
+
+
+networks:
+  uni-network:
+    # down 不会移除网络 方便跨服务编排
+    external: true
+    name: uni-network
+    labels:
+      - "key=value"
