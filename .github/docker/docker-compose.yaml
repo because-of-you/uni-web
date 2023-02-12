@@ -1,6 +1,6 @@
 version: "3.9"
 services:
-  server:
+  web:
     # 默认不构建镜像
     #    build:
     #      dockerfile: DockerFile
@@ -19,6 +19,8 @@ services:
 
     networks:
       - uni-network
+    ports:
+      - "80:80"
 
 
 networks:
