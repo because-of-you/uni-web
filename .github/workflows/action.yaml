@@ -106,10 +106,10 @@ jobs:
           password: ${{ secrets.ALIYUN_PASSWORD }}
           script: |
             cd /opt/component/server/.github/docker
-            echo "DATASOURCE_HOST=${{ secrets.DATASOURCE_HOST }}" >> .env
-            echo "DATASOURCE_PORT=${{ secrets.DATASOURCE_PORT }}" >> .env
-            echo "DATASOURCE_USER=${{ secrets.DATASOURCE_USER }}" >> .env
-            echo "DATASOURCE_PASSWORD=${{ secrets.DATASOURCE_PASSWORD }}" >> .env
+            # echo "DATASOURCE_HOST=${{ secrets.DATASOURCE_HOST }}" >> .env
+            # echo "DATASOURCE_PORT=${{ secrets.DATASOURCE_PORT }}" >> .env
+            # echo "DATASOURCE_USER=${{ secrets.DATASOURCE_USER }}" >> .env
+            # echo "DATASOURCE_PASSWORD=${{ secrets.DATASOURCE_PASSWORD }}" >> .env
             chmod +x ./compose-restart.sh && ./compose-restart.sh
 
       # -------------------------------------------服务启动维护管理模块-----------------------------------------------------
