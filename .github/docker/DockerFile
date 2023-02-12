@@ -7,8 +7,8 @@ ENV TZ=Asia/Shanghai
 WORKDIR /opt/component/
 
 # 复制其他文件
-ADD build/* /usr/share/nginx/html/
-ADD .github/docker/* ./
+ADD build/ /usr/share/nginx/html/
+ADD .github/docker/ ./
 
 # 权限
 #RUN chmod +x /docker-entrypoint.sh
