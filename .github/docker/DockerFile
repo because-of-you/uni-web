@@ -11,11 +11,11 @@ ADD build/* /usr/share/nginx/html/
 ADD .github/docker/* ./
 
 # 权限
-RUN chmod +x ./entrypoint.sh
+RUN chmod +x /docker-entrypoint.sh
 #    sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
 
 # 运行
-ENTRYPOINT ["./entrypoint.sh"]
+ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD [""]
 
 
