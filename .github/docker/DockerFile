@@ -16,7 +16,12 @@ ADD .github/docker/* ./
 
 # 运行
 ENTRYPOINT ["/docker-entrypoint.sh"]
-CMD [""]
+
+EXPOSE 80
+
+STOPSIGNAL SIGQUIT
+
+CMD ["nginx", "-g", "daemon off;"]
 
 
 
