@@ -7,7 +7,7 @@ ENV TZ=Asia/Shanghai
 WORKDIR /opt/component/
 
 # 复制其他文件
-ADD build/* ./server.jar
+ADD build/* /usr/share/nginx/html/
 ADD .github/docker/* ./
 
 # 权限

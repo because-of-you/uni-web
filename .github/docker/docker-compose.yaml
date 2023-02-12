@@ -4,7 +4,7 @@ services:
     # 默认不构建镜像
     #    build:
     #      dockerfile: DockerFile
-    image: registry.cn-hangzhou.aliyuncs.com/acitrus/uni:main
+    image: registry.cn-hangzhou.aliyuncs.com/acitrus/uni-web:main
     pull_policy: always
     env_file:
       - .env
