@@ -105,7 +105,7 @@ jobs:
           username: ${{ secrets.ALIYUN_USER }}
           password: ${{ secrets.ALIYUN_PASSWORD }}
           script: |
-            cd /opt/component/server/.github/docker
+            cd /opt/component/web/.github/docker
             # echo "DATASOURCE_HOST=${{ secrets.DATASOURCE_HOST }}" >> .env
             # echo "DATASOURCE_PORT=${{ secrets.DATASOURCE_PORT }}" >> .env
             # echo "DATASOURCE_USER=${{ secrets.DATASOURCE_USER }}" >> .env
