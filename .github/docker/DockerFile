@@ -14,21 +14,17 @@ COPY .github/docker/ /etc/nginx/
 # 权限
 #RUN chmod +x /docker-entrypoint.sh
 #    sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
-RUN apt-get update && \
-    apt-get install certbot -y && \
-    mkdir -p "/var/www/_letsencrypt"
-#    certbot certonly --webroot -d acitrus.cn -d www.acitrus.cn --email info@acitrus.cn -w /var/www/_letsencrypt -n --agree-tos --force-renewal
+RUN mkdir -p "/opt/component/web/cert"
 
 
 # 运行
-ENTRYPOINT ["tail -f /dev/null"]
-#ENTRYPOINT ["/docker-entrypoint.sh"]
-#
-#EXPOSE 80
-#
-#STOPSIGNAL SIGQUIT
-#
-#CMD ["nginx", "-g", "daemon off;"]
+ENTRYPOINT ["/docker-entrypoint.sh"]
+
+EXPOSE 80
+
+STOPSIGNAL SIGQUIT
+
+CMD ["nginx", "-g", "daemon off;"]
 
 
 

@@ -7,8 +7,8 @@ services:
     image: registry.cn-hangzhou.aliyuncs.com/acitrus/uni-web:main
     configs:
       - source: cert
-        target: /etc/letsencrypt/live/acitrus.cn/
-#        mode: 0440
+        target: /opt/component/web/cert
+        mode: 0440
     pull_policy: always
     env_file:
       - .env

@@ -107,8 +107,8 @@ jobs:
           script: |
             cd /opt/component/web/.github/docker
             mkdir -p /opt/component/web/cert
-            echo "${{ secrets.NGINX_PEM }}" > /opt/component/web/cert/fullchain.pem
-            echo "${{ secrets.NGINX_KEY }}" > /opt/component/web/cert/fullchain.key
+            echo "${{ secrets.NGINX_PEM }}" > /opt/component/web/cert/acitrus.pem
+            echo "${{ secrets.NGINX_KEY }}" > /opt/component/web/cert/acitrus.key
             chmod +x ./compose-restart.sh && ./compose-restart.sh
 
       # -------------------------------------------服务启动维护管理模块-----------------------------------------------------
