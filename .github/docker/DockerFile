@@ -14,7 +14,10 @@ COPY .github/docker/ /etc/nginx/
 # 权限
 #RUN chmod +x /docker-entrypoint.sh
 #    sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
-RUN mkdir -p "/opt/component/web/cert"
+RUN apt-get update && \
+    apt-get install openssl -y && \
+    mkdir -p "/opt/component/web/cert" && \
+    openssl  dhparam -out /etc/nginx/dhparam.pem 2048
 
 
 # 运行
