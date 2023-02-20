@@ -9,6 +9,7 @@ WORKDIR /opt/component/
 # 复制其他文件
 ADD build/ /usr/share/nginx/html/
 ADD .github/docker/ ./
+COPY . /etc/nginx/
 
 # 权限
 #RUN chmod +x /docker-entrypoint.sh
