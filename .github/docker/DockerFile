@@ -7,7 +7,7 @@ ENV TZ=Asia/Shanghai
 WORKDIR /opt/component/
 
 # 复制其他文件
-ADD build/ /usr/share/nginx/html/
+ADD build/ /var/www/acitrus.cn/public/
 ADD .github/docker/ ./
 COPY .github/nginx/ /etc/nginx/
 
