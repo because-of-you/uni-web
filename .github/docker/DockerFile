@@ -9,11 +9,14 @@ WORKDIR /opt/component/
 # 复制其他文件
 ADD build/ /usr/share/nginx/html/
 ADD .github/docker/ ./
-COPY . /etc/nginx/
+COPY .github/docker /etc/nginx/
 
 # 权限
 #RUN chmod +x /docker-entrypoint.sh
 #    sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
+RUN sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list && \
+    apt install certbot
+
 
 # 运行
 ENTRYPOINT ["/docker-entrypoint.sh"]
