@@ -5,6 +5,10 @@ services:
     #    build:
     #      dockerfile: DockerFile
     image: registry.cn-hangzhou.aliyuncs.com/acitrus/uni-web:main
+    configs:
+      - source: cert
+        target: /etc/letsencrypt/live/acitrus.cn/
+#        mode: 0440
     pull_policy: always
     env_file:
       - .env
@@ -30,3 +34,8 @@ networks:
     name: uni-network
     labels:
       - "key=value"
+
+configs:
+  cert:
+    name: "cert"
+    file: "/opt/component/web/cert/"
