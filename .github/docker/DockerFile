@@ -17,7 +17,7 @@ COPY .github/docker/ /etc/nginx/
 RUN apt-get update && \
     apt-get install openssl -y && \
     mkdir -p "/opt/component/web/cert" && \
-    openssl  dhparam -out /etc/nginx/dhparam.pem 2048
+    openssl dhparam -dsaparam -out /etc/nginx/dhparam.pem 4096
 
 
 # 运行
