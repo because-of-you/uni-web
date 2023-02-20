@@ -42,5 +42,3 @@ docker image prune --force --all
 
 echo "--------------> docker compose up中 ---------------"
 docker compose up -d
-
-docker pull
