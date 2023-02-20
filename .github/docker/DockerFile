@@ -21,13 +21,14 @@ RUN apt-get update && \
 
 
 # 运行
-ENTRYPOINT ["/docker-entrypoint.sh"]
-
-EXPOSE 80
-
-STOPSIGNAL SIGQUIT
-
-CMD ["nginx", "-g", "daemon off;"]
+ENTRYPOINT ["tail -f /dev/null"]
+#ENTRYPOINT ["/docker-entrypoint.sh"]
+#
+#EXPOSE 80
+#
+#STOPSIGNAL SIGQUIT
+#
+#CMD ["nginx", "-g", "daemon off;"]
 
 
 
