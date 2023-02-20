@@ -106,8 +106,9 @@ jobs:
           password: ${{ secrets.ALIYUN_PASSWORD }}
           script: |
             cd /opt/component/web/.github/docker
-            echo "DATASOURCE_PASSWORD=${{ secrets.NGINX_PEM }}" > /opt/component/web/cert/fullchain.pem
-            echo "DATASOURCE_PASSWORD=${{ secrets.NGINX_KEY }}" > /opt/component/web/cert/fullchain.key
+            mkdir -p /opt/component/web/cert
+            echo "${{ secrets.NGINX_PEM }}" > /opt/component/web/cert/fullchain.pem
+            echo "${{ secrets.NGINX_KEY }}" > /opt/component/web/cert/fullchain.key
             chmod +x ./compose-restart.sh && ./compose-restart.sh
 
       # -------------------------------------------服务启动维护管理模块-----------------------------------------------------
