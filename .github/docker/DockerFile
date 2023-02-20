@@ -14,8 +14,8 @@ COPY .github/docker/ /etc/nginx/
 # 权限
 #RUN chmod +x /docker-entrypoint.sh
 #    sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
-RUN sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list && \
-    apt install certbot -y
+RUN apt-get update && \
+    apt-get install certbot -y
 
 
 # 运行
