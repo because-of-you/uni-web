@@ -85,6 +85,9 @@ jobs:
       # -------------------------------------------docker 镜像管理模块----------------------------------------------------
 
 
+      - name: rm node_modules
+        run: rm -rf node_modules
+
       # -------------------------------------------服务启动维护管理模块-----------------------------------------------------
       # 该模块GitHub参考文档是https://github.com/appleboy/scp-action
       # 该模块GitHub参考文档是https://github.com/appleboy/ssh-action
